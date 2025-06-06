@@ -46,39 +46,93 @@ export default function Home() {
   const galleryItems: GalleryItem[] = [
     {
       type: 'image' as const,
-      src: '/images/gallery-1.jpg',
+      src: '/images/1.jpeg',
       caption: 'Treino funcional com cliente',
       alt: 'Chico a orientar cliente em exercício funcional'
     },
     {
-      type: 'video' as const,
-      src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      caption: 'Tutorial: Agachamento perfeito',
-      alt: 'Vídeo tutorial de agachamento'
-    },
-    {
       type: 'image' as const,
-      src: '/images/gallery-2.jpg',
+      src: '/images/2.jpeg',
       caption: 'Sessão de treino de força',
       alt: 'Chico a demonstrar exercício de força'
     },
     {
-      type: 'video' as const,
-      src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      caption: 'HIIT: 15 minutos intensos',
-      alt: 'Vídeo de treino HIIT'
-    },
-    {
       type: 'image' as const,
-      src: '/images/gallery-3.jpg',
+      src: '/images/3.jpeg',
       caption: 'Reabilitação e mobilidade',
       alt: 'Chico a ajudar cliente com exercícios de mobilidade'
     },
     {
       type: 'image' as const,
-      src: '/images/gallery-4.jpg',
+      src: '/images/4.jpeg',
       caption: 'Treino ao ar livre',
       alt: 'Sessão de treino no exterior'
+    },
+    {
+      type: 'image' as const,
+      src: '/images/5.jpeg',
+      caption: 'CrossFit training session',
+      alt: 'Chico durante sessão de CrossFit'
+    },
+    {
+      type: 'image' as const,
+      src: '/images/6.jpeg',
+      caption: 'Treino personalizado',
+      alt: 'Sessão de treino personalizado'
+    },
+    {
+      type: 'image' as const,
+      src: '/images/7.jpeg',
+      caption: 'Exercícios de mobilidade',
+      alt: 'Chico a demonstrar exercícios de mobilidade'
+    },
+    {
+      type: 'image' as const,
+      src: '/images/8.jpeg',
+      caption: 'Treino funcional avançado',
+      alt: 'Exercícios funcionais avançados'
+    },
+    {
+      type: 'image' as const,
+      src: '/images/9.jpeg',
+      caption: 'Preparação física',
+      alt: 'Sessão de preparação física'
+    },
+    {
+      type: 'image' as const,
+      src: '/images/10.jpeg',
+      caption: 'Treino de resistência',
+      alt: 'Exercícios de resistência e força'
+    },
+    {
+      type: 'image' as const,
+      src: '/images/11.jpeg',
+      caption: 'Técnicas de reabilitação',
+      alt: 'Chico aplicando técnicas de reabilitação'
+    },
+    {
+      type: 'image' as const,
+      src: '/images/12.jpeg',
+      caption: 'Sessão de grupo',
+      alt: 'Treino em grupo orientado pelo Chico'
+    },
+    {
+      type: 'video' as const,
+      src: '/images/13.mp4',
+      caption: 'Tutorial: Técnica de exercício',
+      alt: 'Vídeo tutorial de técnica de exercício'
+    },
+    {
+      type: 'video' as const,
+      src: '/images/14.mp4',
+      caption: 'Demonstração de treino funcional',
+      alt: 'Vídeo de demonstração de treino funcional'
+    },
+    {
+      type: 'video' as const,
+      src: '/images/15.mp4',
+      caption: 'Sessão de treino completa',
+      alt: 'Vídeo de sessão de treino completa'
     }
   ]
 
@@ -109,7 +163,7 @@ Estou interessado(a) em agendar uma sessão de treino pessoal consigo. Por favor
 – [O Seu Nome]
 – [Número de Contacto Preferido]`)
 
-    window.location.href = `mailto:chico@fitnesswithchico.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:francisco.lmplopes@gmail.com?subject=${subject}&body=${body}`
   }
 
   return (
@@ -119,7 +173,7 @@ Estou interessado(a) em agendar uma sessão de treino pessoal consigo. Por favor
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-sky-400">Treina With Chico</h1>
+              <h1 className="text-2xl font-bold text-sky-400">Train with Chico</h1>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
@@ -367,12 +421,21 @@ Estou interessado(a) em agendar uma sessão de treino pessoal consigo. Por favor
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   ) : (
-                    <div className="w-full h-full bg-gray-800 flex items-center justify-center">
-                      <div className="text-center">
-                        <svg className="w-16 h-16 text-sky-400 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                        </svg>
-                        <p className="text-white font-semibold">Vídeo</p>
+                    <div className="w-full h-full bg-gray-800 flex items-center justify-center relative overflow-hidden">
+                      <video
+                        src={item.src}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        muted
+                        loop
+                        playsInline
+                      />
+                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                        <div className="text-center">
+                          <svg className="w-16 h-16 text-white mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                          </svg>
+                          <p className="text-white font-semibold text-sm">Vídeo</p>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -416,10 +479,13 @@ Estou interessado(a) em agendar uma sessão de treino pessoal consigo. Por favor
               </div>
             ) : (
               <div className="aspect-video">
-                <iframe
+                <video
                   src={selectedMedia.src}
                   className="w-full h-full rounded-lg"
-                  allowFullScreen
+                  controls
+                  autoPlay
+                  muted
+                  loop
                 />
               </div>
             )}
@@ -530,7 +596,7 @@ Estou interessado(a) em agendar uma sessão de treino pessoal consigo. Por favor
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white">Email</h4>
-                      <p className="text-gray-300">chico@fitnesswithchico.com</p>
+                      <p className="text-gray-300">francisco.lmplopes@gmail.com</p>
                     </div>
                   </div>
 
@@ -554,7 +620,7 @@ Estou interessado(a) em agendar uma sessão de treino pessoal consigo. Por favor
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white">Localização</h4>
-                      <p className="text-gray-300">Porto, Portugal<br />Treinos ao domicílio disponíveis</p>
+                      <p className="text-gray-300">Lisboa, Portugal<br /></p>
                     </div>
                   </div>
 
